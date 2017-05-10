@@ -1,12 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+const poster = ""
+
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      component: <HomeSection />,
+    }
+    this.changePage = this.changePage.bind(this)
+  }
+
+  changePage() {
+    this.setState({ component: <CommentSection title={poster}/>  })
+  }
+
   render() {
     return (
       <div className="App">
-        <HomeSection />    
+        {this.state.component}
+        <button
+          onClick={() => this.changePage()}
+          >
+          Start film
+        </button>
       </div>
     )
   }
@@ -14,8 +32,11 @@ class App extends Component {
 
 class CommentSection extends Component {
   render() {
+    const { title } = this.props
     return (
-      <h1>Comments</h1>
+      <div className="commentContainer">
+        <img src={title}/>
+      </div>
     )
   }
 }
@@ -44,15 +65,18 @@ class HomeSection extends Component {
     const response = JSON.parse(xhttp.responseText)["results"][0]
     const name = response["original_title"]
     const description = response["overview"]
+    const image = "http://image.tmdb.org/t/p/w185/" + response["poster_path"]
     this.setState(
       {
         title: name,
-        info: description
+        info: description,
+        poster: image
       }
     )
   }
 
   render() {
+    const { title } = this.props
     return (
       <div className="container">
         <h1>Read comments while you watch a film</h1>
@@ -67,8 +91,8 @@ class HomeSection extends Component {
         <span className="results">
           <h4>{this.state.title}</h4>
           <p>{this.state.info}</p>
+          {poster = this.state.poster}
         </span>
-        <button>Start film</button>
       </div>
     )
   }

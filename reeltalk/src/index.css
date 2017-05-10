@@ -4,12 +4,23 @@ body {
   font-family: sans-serif;
 }
 
+img {
+  filter: brightness(20%);
+/*  position: absolute;*/
+  width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+.commentContainer {
+}
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  height: 100vh;
+  height: 80vh;
   margin: 20px;
 } 
 
@@ -22,7 +33,8 @@ input {
   font-weight: 200;
 }
 
-input:focus {
+input:focus,
+button:focus {
   outline: none;
 }
 
@@ -34,10 +46,10 @@ input::placeholder {
   display: flex;
   flex-direction: column;
   margin-top: 80px;
-  margin-bottom: 10px;
   height: 200px;
   width: 100%;
   border: 1px solid grey;
+  font-size: 12px;
 }
 
 h1, h3 {
@@ -50,8 +62,17 @@ h1 {
 }
 
 button {
+  height: 40px;
+  width: 100px;
+  background: none;
+  border: 1px solid black;
+}
+
+button:hover {
+  background: lightgrey;
 }
 
 span {
   text-align: left;
 }
+
