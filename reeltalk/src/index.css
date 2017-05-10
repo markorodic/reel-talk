@@ -14,26 +14,33 @@ body {
 } 
 
 input {
-  margin-top: 40px;
+  margin-top: 20px;
   border: none;
-  border-bottom: 1px solid grey;
-  width: 200px;
-  font-size: 30px;
+  border-bottom: 1px solid black;
+  width: 300px;
+  font-size: 50px;
+  font-weight: 200;
 }
 
 input:focus {
   outline: none;
 }
 
+input::placeholder {
+
+}
+
 .results {
-  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
   margin-bottom: 10px;
   height: 200px;
   width: 100%;
   border: 1px solid grey;
 }
 
-h1, h4 {
+h1, h3 {
   margin-bottom: 50px;
   text-align: left;
 }
